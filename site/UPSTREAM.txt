@@ -1,0 +1,13 @@
+AquaNook 3D Windows scene bundle
+
+Deskworlds by Chase Lean, MIT license
+https://github.com/chaseleantj/deskworlds
+Upstream commit: 1be66513b2e90b780d8da9eb7ac89b8b6e3146fc
+
+Three.js 0.180.0, MIT: vendor/THREE-LICENSE.txt
+Riverbed rock, wood and sand textures: Poly Haven CC0 (rock_boulder_dry, rough_wood, sand_01).
+Coral reef geometry and maps: procedural artwork from Deskworlds.
+
+Local changes: Windows WebView2 host bridge, Vietnamese preview labels, native quality setter and read-only simulation telemetry. Reef adds independently lofted blue tang, yellow tang and Moorish idol meshes/materials, smaller eye highlights and physical skin finish; its lighting, coralline colors, sand normals, caustic strength and particulate density are tuned toward natural daylight. Behavioral simulation remains upstream; new visual species borrow existing chromis/anthias motion. See scenes/reefscape/src/fish-species-notes.txt. Documentation screenshots are not runtime assets.
+
+Animation changes: render interpolation between fixed simulation steps, quaternion interpolation, wrap-safe gait phases, continuous simulation-time fin flutter, delayed fin tips and filtered fin rib shading. The 60 FPS loop stays on requestAnimationFrame; lower caps retain timer sleeping.

@@ -1,0 +1,49 @@
+{
+  "desktop_hit_class": "SysListView32",
+  "ordinary_click_does_not_feed": true,
+  "ctrl_click_feeds_eight": true,
+  "pointer_is_forwarded": true,
+  "desktop_pixels_animate": true,
+  "covered_scene_rate": 0,
+  "parent_matches_shell": true,
+  "style_is_child": true,
+  "no_appwindow_style": true,
+  "no_visible_regular_top_level": true,
+  "host_top_level_windows": [
+    {
+      "hwnd": 919376,
+      "visible": false,
+      "toolwindow": true
+    },
+    {
+      "hwnd": 919796,
+      "visible": false,
+      "toolwindow": true
+    },
+    {
+      "hwnd": 853990,
+      "visible": false,
+      "toolwindow": false
+    },
+    {
+      "hwnd": 395576,
+      "visible": false,
+      "toolwindow": false
+    },
+    {
+      "hwnd": 853922,
+      "visible": false,
+      "toolwindow": false
+    },
+    {
+      "hwnd": 722866,
+      "visible": false,
+      "toolwindow": false
+    },
+    {
+      "hwnd": 460556,
+      "visible": false,
+      "toolwindow": false
+    }
+  ]
+}

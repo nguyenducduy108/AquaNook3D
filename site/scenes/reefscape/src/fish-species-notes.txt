@@ -1,0 +1,15 @@
+AquaNook reef fish additions
+
+Six rendered species, 19 individuals: clownfish 3; green chromis 5; lyretail anthias 5; Pacific blue tang 2; yellow tang 2; Moorish idol 2.
+
+Blue tang: Paracanthurus hepatus, compressed oval trunk, black palette marking and yellow caudal fin. Yellow tang: Zebrasoma flavescens, a fine protruding snout and a deeper diamond outline with high dorsal and anal sails. Moorish idol: Zanclus cornutus, angular snout, high body, long curved white dorsal pennant, dark bands, an orange jaw saddle and black caudal fin. All proportions here are art-directed rather than measured biological data.
+
+Geometry is procedurally lofted with bilateral body thickness, geometric eyes, median and paired fins; no fish image textures or sprites. Pigment, small scales, fin rays and lateral line are shader generated. Swim/turn body waves, pectoral rowing and flexible pennant deformation run in the GPU vertex shader. Materials use modest physical clearcoat and tissue transmission.
+
+Behavior limitation: the new visual species borrow stable existing chromis/anthias locomotion slots for navigation, feeding and avoidance. This is an aquarium visualization, not a species-specific behavioral or husbandry simulation. Simulation kinds are preserved; fishSchool.visualSpecies(fish) and speciesCounts identify the rendered species.
+
+Visual reference sources (anatomy/markings; no external art copied):
+https://www.aquariumofpacific.org/onlinelearningcenter/species/yellow_tang
+https://www.waikikiaquarium.org/experience/animal-guide/fishes/moorish-idol/moorish-idol/
+
+Original Deskworlds MIT license applies to inherited fish-model code; see the bundle attribution.

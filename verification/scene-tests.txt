@@ -1,0 +1,163 @@
+PASS: native startup ordering, queued state, coordinate conversion, pause/rate/feed contract, input validation and real telemetry.
+PASS: 120 simulated seconds; 24/24 fish explored all three dimensions; 44% of travel was quiet-tail gliding; calm tail beats at most 3.81 Hz; 11855 inspection frames; 34297 fish-frames behind the grass; 56% of hovering fish facing upstream; minimum sampled spacing 0.610; slow approach gave room (1.48 to 2.54) without a startle; a lunge startled 4 fish directly and 11 in all, peaking at 4.96 units per second; a pinch of 8 pellets drew 17 fish over 14.3 seconds, 8 taken in 13 strikes, crowding to 0.63 at the food and opening back out to 1.53.
+PASS: render budgets, zero-size/large targets, 20/30/60 fps pacing at 60/120 Hz, stop/resume, reduced motion, hidden invalidation and zero idle callbacks
+PASS: rear ribbons 1536 -> 1075; rear triangles 552960 -> 86000; foreground attributes and downstream RNG byte-for-byte unchanged
+{
+  "pass": true,
+  "simulatedSeconds": 260.0000000000922,
+  "consumed": 16,
+  "maxClownfishHostDistance": 2.173199927354777,
+  "time": 260.0000000000922,
+  "steps": 15600,
+  "population": {
+    "clownfish": 3,
+    "chromis": 9,
+    "anthias": 7,
+    "shrimp": 2
+  },
+  "food": 0,
+  "maxSpeed": 1.103168314631045,
+  "finite": true
+}
+{
+  "pass": true,
+  "indexedFishModels": 3,
+  "limestoneVertices": 184195,
+  "limestoneTriangles": 368290,
+  "outwardNormalAgreement": 0.9938255514645987,
+  "attachmentField": [
+    385,
+    193
+  ]
+}
+{
+  "pass": true,
+  "roamingSeconds": 540,
+  "alarmRecoverySeconds": 15,
+  "navigationNodes": 156,
+  "reports": [
+    {
+      "seed": 36719,
+      "minRoamingWidth": 14.550200550548606,
+      "minRoamingDistance": 106.18425287024952,
+      "maxStep": 0.02322736838639412,
+      "maxHost": 1.9751113969338396
+    },
+    {
+      "seed": 42,
+      "minRoamingWidth": 11.173721883481715,
+      "minRoamingDistance": 111.76751150704138,
+      "maxStep": 0.025422118085498675,
+      "maxHost": 1.939062746859442
+    },
+    {
+      "seed": 9001,
+      "minRoamingWidth": 12.794167440197668,
+      "minRoamingDistance": 110.97906932422255,
+      "maxStep": 0.027828201559178947,
+      "maxHost": 1.894170337799194
+    }
+  ]
+}
+{
+  "pass": true,
+  "total": 385,
+  "anemones": [
+    {
+      "radius": 1.25,
+      "count": 169,
+      "compact": false,
+      "meanLength": 0.8219881997764824
+    },
+    {
+      "radius": 0.7,
+      "count": 96,
+      "compact": true,
+      "meanLength": 0.26541351900848026
+    },
+    {
+      "radius": 0.42,
+      "count": 48,
+      "compact": true,
+      "meanLength": 0.16277806574196976
+    },
+    {
+      "radius": 0.4,
+      "count": 48,
+      "compact": true,
+      "meanLength": 0.15833469615187046
+    },
+    {
+      "radius": 0.26,
+      "count": 24,
+      "compact": true,
+      "meanLength": 0.10528748455843918
+    }
+  ]
+}
+{
+  "pass": true,
+  "species": {
+    "clown": 3,
+    "chromis": 5,
+    "anthias": 5,
+    "blueTang": 2,
+    "yellowTang": 2,
+    "moorishIdol": 2
+  },
+  "dimensions": {
+    "clown": {
+      "length": 1.2470843195915222,
+      "height": 0.717997133731842,
+      "thickness": 0.26766446232795715,
+      "bodyHeight": 0.49762722849845886,
+      "bodyThickness": 0.17962726950645447
+    },
+    "chromis": {
+      "length": 1.0960000157356262,
+      "height": 0.5167480558156967,
+      "thickness": 0.1644134521484375,
+      "bodyHeight": 0.3281596750020981,
+      "bodyThickness": 0.0911877453327179
+    },
+    "anthias": {
+      "length": 1.4800000190734863,
+      "height": 0.6184735596179962,
+      "thickness": 0.1849459558725357,
+      "bodyHeight": 0.4129606932401657,
+      "bodyThickness": 0.13167746365070343
+    },
+    "blueTang": {
+      "length": 1.2525476813316345,
+      "height": 0.7436999082565308,
+      "thickness": 0.31418752670288086,
+      "bodyHeight": 0.5862304866313934,
+      "bodyThickness": 0.17145051062107086
+    },
+    "yellowTang": {
+      "length": 1.1927790641784668,
+      "height": 0.9748876094818115,
+      "thickness": 0.28740039467811584,
+      "bodyHeight": 0.614669531583786,
+      "bodyThickness": 0.12973009049892426
+    },
+    "moorishIdol": {
+      "length": 1.2612096667289734,
+      "height": 1.5832749605178833,
+      "thickness": 0.3407040238380432,
+      "bodyHeight": 0.6915864646434784,
+      "bodyThickness": 0.11588675528764725
+    }
+  },
+  "meshCount": 6
+}
+{
+  "pass": true,
+  "phaseWraps": "forward/reverse",
+  "pausedBufferRepeats": 200,
+  "interpolationSamples": 5,
+  "worstDerivativeError": 5.841800827799393e-11,
+  "coastPeak": 0.0033553528829710273
+}
+betta food ok
+11 suites passed.

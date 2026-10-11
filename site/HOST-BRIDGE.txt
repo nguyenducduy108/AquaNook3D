@@ -1,0 +1,37 @@
+AquaNook 3D WebView2 bridge, version 1
+
+Load https://aquarium.local/scenes/reefscape/wallpaper.html?quality=balanced
+Other world directories: riverscape, bettascape.
+The host maps aquarium.local to this site folder using SetVirtualHostNameToFolderMapping.
+No local HTTP server, external CDN, image-of-a-fish, or network service is required.
+
+Receive JSON messages with CoreWebView2.WebMessageReceived:
+  {app:"AquaNook3D",version:1,world:"reefscape",type:"ready",capabilities:[...],scene:{...},geometry:{...}}
+  {app:"AquaNook3D",version:1,world:"reefscape",type:"error",message:"..."}
+  {app:"AquaNook3D",version:1,world:"reefscape",type:"stats",scene:{...},geometry:{...},host:{...}}
+
+Send JSON objects with CoreWebView2.PostWebMessageAsJson:
+  {type:"rate",value:30}              // 0 pauses rendering without changing user pause
+  {type:"pause",value:true}           // remember user choice in native app
+  {type:"quality",value:"balanced"}   // eco, balanced, detail, native; no reload
+  {type:"power",value:false}          // true while on battery
+  {type:"pointer",x:0.5,y:0.5,inside:true} // normalized 0..1 view coordinates
+  {type:"pointer",inside:false}       // pointer above another app or outside screen
+  {type:"feed"}                       // actual pellets, real fish pursuit/consumption
+  {type:"stats"}                      // immediate telemetry response
+
+Optional message id produces {type:"ack",id:...,accepted:boolean}.
+Send state before or after ready; the bridge preserves early rate/pause/quality/power.
+Do not use WebView2 NavigationCompleted as scene readiness. Wait for type:ready.
+Wallpaper pages start at 0 FPS in a native host until type:rate is received.
+Native host must keep WebView2 IsVisible=true even behind desktop icons; control
+simulation through rate/pause, not by hiding the WebView controller.
+Five-second native stats include actual rendered triangle count, fish XYZ positions,
+fin/turn phases, active pellets and eaten count. No pointer history is recorded.
+
+Preview: open /scenes/reefscape/index.html through a web server (or this virtual host).
+It retains accessible controls and direct click-to-feed; Space pauses, F fullscreens,
+H hides controls. A standalone preview is not the desktop wallpaper implementation.
+For browser QA: window.aquaBridge.command({...}); window.aquaBridge.stats().
+
+Read UPSTREAM.txt, DESKWORLDS-LICENSE.txt and vendor/THREE-LICENSE.txt for attribution.

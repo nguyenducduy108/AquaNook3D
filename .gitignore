@@ -1,0 +1,11 @@
+.vs/
+.vscode/
+obj/
+bin/
+*.user
+*.suo
+site/node_modules/
+site/.cache/
+*.log
+*.tmp
+
