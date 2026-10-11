@@ -32,3 +32,29 @@ try {
     Remove-Item -LiteralPath $tempRoot -Recurse -Force -ErrorAction SilentlyContinue
 }
 
+        'HKLM:\SOFTWARE\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}',
+        'HKLM:\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}',
+        'HKCU:\SOFTWARE\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}'
+    )
+    if (-not ($wv2Keys | Where-Object { Test-Path -LiteralPath $_ })) {
+        Write-Warning 'Microsoft Edge WebView2 Runtime was not detected. Install it from https://developer.microsoft.com/microsoft-edge/webview2/ if Aqua Nook does not start.'
+    }
+
+    $shortcutDir = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs'
+    $shortcut = Join-Path $shortcutDir 'Aqua Nook 3D.lnk'
+    New-Item -ItemType Directory -Path $shortcutDir -Force | Out-Null
+    $shell = New-Object -ComObject WScript.Shell
+    $link = $shell.CreateShortcut($shortcut)
+    $link.TargetPath = $exe
+    $link.WorkingDirectory = $installRoot
+    $link.Description = 'Interactive live desktop aquarium'
+    $link.Save()
+
+    Write-Host 'Starting Aqua Nook 3D...' -ForegroundColor Green
+    Start-Process -FilePath $exe -WorkingDirectory $installRoot
+    Write-Host "Installed to $installRoot" -ForegroundColor Green
+} finally {
+    Remove-Item -LiteralPath $zipPath -Force -ErrorAction SilentlyContinue
+    Remove-Item -LiteralPath $tempRoot -Recurse -Force -ErrorAction SilentlyContinue
+}
+

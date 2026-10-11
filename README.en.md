@@ -18,7 +18,7 @@ Open PowerShell and run:
 irm https://raw.githubusercontent.com/nguyenducduy108/AquaNook3D/main/install.ps1 | iex
 ```
 
-The installer downloads the latest public archive, installs to `%LOCALAPPDATA%\\AquaNook3D`, creates a Start Menu shortcut and launches the tray host. Requirements are Windows 10/11 64-bit, .NET Framework 4.8 and Microsoft Edge WebView2 Runtime. If WebView2 is missing, the script prints Microsoft's official download page.
+The installer downloads the latest public archive, installs to `%LOCALAPPDATA%\\AquaNook3D`, creates a Start Menu shortcut and launches the tray host. Requirements are Windows 10/11 64-bit, .NET Framework 4.8 and Microsoft Edge WebView2 Runtime.
 
 For a local checkout:
 
@@ -72,9 +72,10 @@ Aqua Nook uses WebView2 and WebGL, so the main render work runs on the GPU; the 
 - **Reasonable starting point:** Windows 10/11 64-bit, .NET Framework 4.8, WebView2 Runtime, 4 GB RAM, a modern 4-thread CPU, and a WebGL2-capable GPU. This is guidance, not a verified minimum.
 - **Recommended:** 8 GB RAM, a 4-core CPU, and a discrete GPU or recent integrated GPU for 2560×1440 at Sharp quality. No fixed VRAM capacity is required; watch the memory available on the actual machine.
 - **Background or lower-power use:** choose **Economy** (20 fps) or **Balanced** (30 fps), lower quality/render scale when needed, and use **Pause** when animation is unnecessary. Pause stops simulation and the render loop while loaded assets remain in RAM/VRAM; **Exit** releases the process resources.
-- **Automatic saving:** when a foreground window fully covers the desktop or the machine is locked, the host sets the render rate to 0; the scene resumes when the desktop is visible. On battery power, rendering is capped at 30 fps.
+- **Automatic throttling:** when a foreground window fully covers the desktop or the machine is locked, the host sets the render rate to 0; the scene resumes when the desktop is visible. On battery power, rendering is capped at 30 fps.
 - **How to watch it:** check AquaNook3D.exe in Task Manager > Processes, and GPU engine plus dedicated/shared memory in Task Manager > Performance > GPU. Lower quality if you see stutter, high temperature, or nearly full GPU memory.
 
 ## Hardware validation
 
 The automated checks cover simulation, render pacing, pause/resume, covered/locked throttling, and desktop-layer recovery. They are not a cross-machine power or RAM/VRAM benchmark. The included scene screenshots were captured at 2560×1440.
+

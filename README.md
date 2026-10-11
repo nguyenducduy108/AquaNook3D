@@ -91,9 +91,10 @@ Aqua Nook dùng WebView2 và WebGL nên phần render chính chạy trên GPU; C
 - **Điểm bắt đầu hợp lý:** Windows 10/11 64-bit, .NET Framework 4.8, WebView2 Runtime, 4 GB RAM, CPU hiện đại từ 4 luồng và GPU hỗ trợ WebGL2. Đây là hướng dẫn cấu hình, không phải mức tối thiểu đã được chứng minh.
 - **Khuyến nghị:** 8 GB RAM, CPU 4 lõi và GPU rời hoặc iGPU đời mới nếu chạy 2560×1440 ở mức Sắc nét. Không yêu cầu một dung lượng VRAM cố định; hãy để ý bộ nhớ GPU khả dụng trên máy thực tế.
 - **Chạy nền hoặc máy yếu:** chọn **Tiết kiệm** (20 fps) hoặc **Cân bằng** (30 fps), giảm quality/render scale nếu cần, và bật **Tạm dừng** khi không cần chuyển động. Tạm dừng dừng mô phỏng và vòng render nhưng tiến trình vẫn giữ asset đã tải trong RAM/VRAM; **Thoát** mới giải phóng tài nguyên tiến trình.
-- **Tự động tiết kiệm:** khi cửa sổ tiền cảnh phủ kín desktop hoặc máy bị khóa, host đặt tốc độ render về 0; khi desktop hiện lại, cảnh tiếp tục. Khi chạy bằng pin, tốc độ bị giới hạn tối đa 30 fps.
+- **Tự động giảm tải:** khi cửa sổ tiền cảnh phủ kín desktop hoặc máy bị khóa, host đặt tốc độ render về 0; khi desktop hiện lại, cảnh tiếp tục. Khi chạy bằng pin, tốc độ bị giới hạn tối đa 30 fps.
 - **Theo dõi:** xem AquaNook3D.exe trong Task Manager > Processes; xem GPU engine và dedicated/shared memory trong Task Manager > Performance > GPU. Hạ quality nếu thấy giật, nhiệt độ cao hoặc bộ nhớ GPU gần đầy.
 
 ## Kiểm thử phần cứng
 
 Các test tự động xác nhận mô phỏng, render pacing, pause/resume, giảm tốc khi bị che/khóa và phục hồi lớp desktop. Chúng không phải benchmark tiêu thụ điện hay mức RAM/VRAM trên mọi máy. Độ phân giải 2560×1440 đã được dùng trong các ảnh chụp cảnh đi kèm repository.
+
