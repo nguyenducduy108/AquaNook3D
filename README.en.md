@@ -6,7 +6,7 @@ A realistic, interactive aquarium that lives beneath your desktop icons. Six fis
 
 - Native Windows desktop hosting through the Progman/WorkerW layer.
 - Six fish species with schooling motion, fin animation and click-to-feed reactions.
-- Coral reef, river and betta scenes with a mini bay, sun-wheel accent, shadows, water scattering and suspended particles.
+- Coral reef, river and betta scenes with a mini bay, shadows, water scattering and suspended particles.
 - Tray controls for scene switching, pause/resume, quality, reload, logs, startup and exit.
 - No CDN, HTTP server, Python or Node runtime is required by the compiled build.
 
@@ -55,3 +55,23 @@ The desktop-hosting architecture was informed by [Lively Wallpaper](https://gith
 The WebGL scene is adapted from [Deskworlds](https://github.com/chaseleantj/deskworlds) under MIT; third-party notices remain in `site/`. The original host, bridge, realistic rendering changes and added species are included here under the [Apache License 2.0](LICENSE).
 
 
+## Scene screenshots
+
+### Riverscape
+
+![Riverscape desktop scene](docs/riverscape-desktop.png)
+
+### Betta
+
+![Betta desktop scene](docs/bettascape-desktop.png)
+
+## Resource usage and hardware
+
+Aqua Nook uses WebView2 and WebGL, so the main rendering load is on the GPU; the CPU handles the desktop host, fish simulation, and state updates. RAM and VRAM vary with resolution, scene, and quality, so a number measured on one machine is not a guarantee for every machine. Watch `AquaNook3D.exe` in Task Manager > Processes and the GPU engine/dedicated memory in Task Manager > Performance > GPU.
+
+- **Practical minimum:** Windows 10/11 64-bit, 4 GB RAM, a 4-thread CPU, a WebGL2-capable GPU with about 1 GB available VRAM, .NET Framework 4.8, and WebView2 Runtime.
+- **Recommended:** 8 GB RAM, a 4-core CPU, and a discrete GPU or recent integrated GPU with about 2 GB available VRAM for 2560×1440 at Sharp quality.
+- **For lower-power or background use:** choose **Economy** (20 fps) or **Balanced** (30 fps), reduce the WebView2/render quality if needed, and use **Pause** when animation is unnecessary. When a foreground window fully covers the desktop or the machine is locked, the host automatically reduces or pauses rendering; it resumes when the desktop is visible.
+- **On battery:** the host caps rendering at 30 fps. Sharp quality and multiple high-resolution monitors use more GPU time.
+
+These are practical starting points; lower quality if Task Manager shows high GPU temperature, full VRAM, or stutter.

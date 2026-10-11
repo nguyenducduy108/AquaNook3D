@@ -8,7 +8,7 @@ A realistic, interactive aquarium that lives underneath your desktop icons. Six 
 
 ## Tiếng Việt
 
-Aqua Nook 3D là bể cá 3D tương tác chạy trực tiếp dưới icon desktop. Bể có sáu loài cá, rạn san hô, vịnh mini, vòng quay mặt trời, bóng đổ và hạt nước. Ứng dụng chạy native trên Windows, nằm trong lớp desktop và không che taskbar, icon hoặc các cửa sổ khác.
+Aqua Nook 3D là bể cá 3D tương tác chạy trực tiếp dưới icon desktop. Bể có sáu loài cá, rạn san hô, vịnh mini, bóng đổ và hạt nước. Ứng dụng chạy native trên Windows, nằm trong lớp desktop và không che taskbar, icon hoặc các cửa sổ khác.
 
 ### Cài đặt nhanh
 
@@ -74,3 +74,23 @@ The script downloads the repository archive, copies the runtime to `%LOCALAPPDAT
 Aqua Nook 3D is inspired by the practical desktop integration patterns of [Lively Wallpaper](https://github.com/rocksdanister/lively), and incorporates scene work adapted from [Deskworlds](https://github.com/chaseleantj/deskworlds). Please keep the included third-party notices when redistributing.
 
 
+## Ảnh các cảnh
+
+### Dòng suối
+
+![Cảnh desktop dòng suối](docs/riverscape-desktop.png)
+
+### Cá betta
+
+![Cảnh desktop cá betta](docs/bettascape-desktop.png)
+
+## Mức sử dụng tài nguyên và cấu hình
+
+Aqua Nook dùng WebView2 và WebGL nên tải chính nằm ở GPU; CPU xử lý host desktop, mô phỏng cá và trao đổi trạng thái. RAM và VRAM thay đổi theo độ phân giải, cảnh và mức chất lượng, vì vậy không nên xem một con số đo trên một máy là cam kết cho mọi máy. Có thể theo dõi `AquaNook3D.exe` trong Task Manager > Processes và GPU engine/dedicated memory trong Task Manager > Performance > GPU.
+
+- **Tối thiểu thực tế nên dùng:** Windows 10/11 64-bit, 4 GB RAM, CPU 4 luồng, GPU có WebGL2 và khoảng 1 GB VRAM khả dụng, .NET Framework 4.8 và WebView2 Runtime.
+- **Khuyến nghị:** 8 GB RAM, CPU 4 lõi, GPU rời hoặc iGPU đời mới với 2 GB VRAM khả dụng nếu chạy 2560×1440 ở mức Sắc nét.
+- **Máy yếu hoặc chạy nền lâu:** chọn **Tiết kiệm** (20 fps) hoặc **Cân bằng** (30 fps), giảm độ phân giải/quality của WebView2 nếu cần, và bật **Tạm dừng** khi không cần chuyển động. Khi một cửa sổ phủ kín desktop hoặc máy bị khóa, host tự giảm/tạm dừng render; khi desktop lộ ra, cảnh tiếp tục.
+- **Pin:** bản host giới hạn tối đa 30 fps khi dùng pin. `Sắc nét` và nhiều màn hình độ phân giải cao sẽ dùng GPU nhiều hơn.
+
+Các mức trên là hướng dẫn thực dụng; hãy hạ quality nếu Task Manager cho thấy GPU nóng, VRAM đầy hoặc máy bị giật.
