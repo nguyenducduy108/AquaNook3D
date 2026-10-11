@@ -67,11 +67,14 @@ The WebGL scene is adapted from [Deskworlds](https://github.com/chaseleantj/desk
 
 ## Resource usage and hardware
 
-Aqua Nook uses WebView2 and WebGL, so the main rendering load is on the GPU; the CPU handles the desktop host, fish simulation, and state updates. RAM and VRAM vary with resolution, scene, and quality, so a number measured on one machine is not a guarantee for every machine. Watch `AquaNook3D.exe` in Task Manager > Processes and the GPU engine/dedicated memory in Task Manager > Performance > GPU.
+Aqua Nook uses WebView2 and WebGL, so the main render work runs on the GPU; the CPU handles the desktop host, fish simulation, and state updates. RAM and VRAM vary with resolution, scene, and quality. This release has not been benchmarked across enough hardware to claim a proven minimum, and integrated GPUs may use shared system memory instead of dedicated VRAM. Treat the following as starting guidance:
 
-- **Practical minimum:** Windows 10/11 64-bit, 4 GB RAM, a 4-thread CPU, a WebGL2-capable GPU with about 1 GB available VRAM, .NET Framework 4.8, and WebView2 Runtime.
-- **Recommended:** 8 GB RAM, a 4-core CPU, and a discrete GPU or recent integrated GPU with about 2 GB available VRAM for 2560×1440 at Sharp quality.
-- **For lower-power or background use:** choose **Economy** (20 fps) or **Balanced** (30 fps), reduce the WebView2/render quality if needed, and use **Pause** when animation is unnecessary. When a foreground window fully covers the desktop or the machine is locked, the host automatically reduces or pauses rendering; it resumes when the desktop is visible.
-- **On battery:** the host caps rendering at 30 fps. Sharp quality and multiple high-resolution monitors use more GPU time.
+- **Reasonable starting point:** Windows 10/11 64-bit, .NET Framework 4.8, WebView2 Runtime, 4 GB RAM, a modern 4-thread CPU, and a WebGL2-capable GPU. This is guidance, not a verified minimum.
+- **Recommended:** 8 GB RAM, a 4-core CPU, and a discrete GPU or recent integrated GPU for 2560×1440 at Sharp quality. No fixed VRAM capacity is required; watch the memory available on the actual machine.
+- **Background or lower-power use:** choose **Economy** (20 fps) or **Balanced** (30 fps), lower quality/render scale when needed, and use **Pause** when animation is unnecessary. Pause stops simulation and the render loop while loaded assets remain in RAM/VRAM; **Exit** releases the process resources.
+- **Automatic saving:** when a foreground window fully covers the desktop or the machine is locked, the host sets the render rate to 0; the scene resumes when the desktop is visible. On battery power, rendering is capped at 30 fps.
+- **How to watch it:** check AquaNook3D.exe in Task Manager > Processes, and GPU engine plus dedicated/shared memory in Task Manager > Performance > GPU. Lower quality if you see stutter, high temperature, or nearly full GPU memory.
 
-These are practical starting points; lower quality if Task Manager shows high GPU temperature, full VRAM, or stutter.
+## Hardware validation
+
+The automated checks cover simulation, render pacing, pause/resume, covered/locked throttling, and desktop-layer recovery. They are not a cross-machine power or RAM/VRAM benchmark. The included scene screenshots were captured at 2560×1440.
